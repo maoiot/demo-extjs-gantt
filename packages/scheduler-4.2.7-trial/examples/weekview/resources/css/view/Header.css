@@ -1,0 +1,16 @@
+.app-header {
+    background   : transparent;
+    color        : #0072BB;
+    font-size    : 1.5em;
+    line-height  : 1.4;
+    padding-left : 10px !important;
+}
+
+.header-month {
+    font-weight  : 400;
+    margin-right : 5px;
+}
+
+.header-year {
+    font-weight : lighter;
+}

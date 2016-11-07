@@ -1,0 +1,6 @@
+.sch-event-wrap {
+    transition-property : height;
+    transition-duration : 0.4s;
+}
+
+

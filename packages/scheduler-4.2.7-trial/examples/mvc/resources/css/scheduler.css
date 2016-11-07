@@ -1,0 +1,55 @@
+.sch-schedulerpanel .x-grid-row .user .x-grid-cell-inner:before {
+    font-family  : FontAwesome;
+    content      : '\f007';
+    color        : #27D4F4;
+    margin-right : 5px;
+}
+
+.sch-schedulerpanel .x-grid-row .x-grid-cell-inner {
+    line-height : 25px;
+    height      : 25px;
+}
+
+.sch-event {
+    cursor : pointer;
+}
+
+.sch-event .sch-event-inner {
+    line-height : 1em;
+    white-space : nowrap;
+}
+
+.sch-event-inner > div {
+    position : absolute;
+    left     : 25px;
+    top      : 1px;
+}
+
+.sch-event-inner:before {
+    font-family : FontAwesome;
+    content     : '\f111';
+    position    : absolute;
+    left        : 5px;
+    top         : 8px;
+}
+
+.sch-event-header {
+    overflow  : hidden;
+    font-size : 0.9em;
+}
+
+.sch-event-footer {
+    padding-top : 1px;
+}
+
+.sch-dragcreator-proxy .sch-event-inner {
+    height : 25px;
+}
+
+.fa-plus-circle:before {
+    color: green;
+}
+
+.fa-minus-circle:before {
+    color: red;
+}

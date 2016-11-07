@@ -1,0 +1,12 @@
+.sch-resourcezone {
+    background  : none;
+    text-align  : center;
+    color       : #999;
+    font-size   : 0.85em;
+    padding-top : 50px;
+}
+
+.sch-resourcezone.important {
+    color       : #dd0000;
+    font-weight : bold;
+}

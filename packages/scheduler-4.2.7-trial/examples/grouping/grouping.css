@@ -1,0 +1,23 @@
+.Consultants {
+    background: #ffc107;
+    background: linear-gradient(to bottom, #ffc107 0%,#ffc107 50%, #ffe7a1 51%,#ffe7a1 100%);
+}
+
+.Sales {
+    background: #9cc96b;
+    background: linear-gradient(to bottom, #9cc96b 0%,#9cc96b 50%, #e7fad2 51%,#e7fad2 100%);
+}
+
+.Testers {
+    background: #27D4F4;
+    background: linear-gradient(to bottom, #27D4F4 0%,#27D4F4 50%, #b8eaf2 51%,#b8eaf2 100%);
+}
+
+.Research {
+    background: #925e8b;
+    background: linear-gradient(to bottom, #925e8b 0%,#925e8b 50%, #dec8db 51%,#dec8db 100%);
+}
+
+.overallocated {
+    color : red;
+}

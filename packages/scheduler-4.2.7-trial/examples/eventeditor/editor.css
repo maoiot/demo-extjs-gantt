@@ -1,0 +1,61 @@
+.editorpanel .x-form-type-text {
+    margin-top : 4px;
+}
+
+.image-ct {
+    text-align : center;
+}
+
+.editorpanel .profile-image {
+    margin-top : 12px;
+    padding    : 2px;
+    border     : 1px solid lightblue;
+    height     : 80px;
+}
+
+.sch-valign {
+    vertical-align : middle;
+}
+
+.icon-delete {
+    background      : transparent url(images/delete.png) no-repeat center center;
+}
+
+.icon-add {
+    background      : transparent url(images/add.png) no-repeat center center;
+}
+
+.sch-event .sch-event-inner {
+    padding-top  : 2px;
+    padding-left : 5px;
+    line-height  : 1.2em;
+    white-space  : nowrap;
+}
+
+.sch-event-hover {
+    border-color : #999;
+}
+
+/*  -----------------------------------
+    Styling of the event tooltip 
+    ----------------------------------- */
+
+.eventTip {
+    padding : 5px;
+}
+
+.eventTip dd {
+    margin-bottom : 17px;
+    white-space   : nowrap;
+}
+
+.eventTip dd:last-child {
+    margin-bottom : 0px !important;
+}
+
+.eventTip dt {
+    font-weight : bold;
+}
+
+
+

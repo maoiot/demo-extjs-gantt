@@ -1,0 +1,8 @@
+.my-event {
+    border-radius : 0px;
+    border        : none;
+    border-left   : 5px solid lightblue !important;
+    margin        : 1px;
+    box-shadow    : none !important;
+    background    : none;
+}

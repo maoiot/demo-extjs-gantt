@@ -1,0 +1,17 @@
+.resourcelist .x-grid-cell {
+    height : 30px;
+}
+
+.resource-type {
+    font-size   : 20px !important;
+    text-align  : center;
+    padding-top : 3px;
+}
+
+.resource-type div {
+    display : none;
+}
+
+.fa-user {
+    color : navy;
+}

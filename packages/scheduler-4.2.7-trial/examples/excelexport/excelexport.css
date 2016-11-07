@@ -1,0 +1,10 @@
+.sch-event-inner {
+    padding      : 5px;
+    padding-left : 8px;
+}
+
+.sch-event-inner:before {
+    font-family  : FontAwesome;
+    margin-right : 5px;
+    content      : "\f017";
+}

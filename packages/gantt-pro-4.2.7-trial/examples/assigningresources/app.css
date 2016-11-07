@@ -1,0 +1,30 @@
+/* Utilization panel icons */
+.gnt-utilizationrow-resource .x-tree-icon:before {
+    content   : "\f007";
+}
+
+/* EOF Utilization panel icons */
+
+.x-tool-undo,
+.x-tool-redo {
+    font       : 16px/1 FontAwesome;
+    background : none !important;
+}
+
+.x-tool-disabled .x-tool-img
+{
+    color:#ccc;
+}
+
+.x-tool-undo:before {
+    content : "\f0e2" !important;
+}
+
+.x-tool-redo:before {
+    content : "\f01e" !important;
+}
+
+.x-tool-disabled .x-mask
+{
+    display:none !important;
+}

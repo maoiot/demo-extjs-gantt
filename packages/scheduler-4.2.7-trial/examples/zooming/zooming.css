@@ -1,0 +1,14 @@
+.x-panel-header label {
+    color: #ffffff;
+    font-size: 10px;
+    white-space: nowrap;
+    margin-left: 7px;
+}
+
+.no-infinite-scheduler {
+    margin-top: 20px;
+}
+
+.x-panel-body {
+    background: transparent;
+}

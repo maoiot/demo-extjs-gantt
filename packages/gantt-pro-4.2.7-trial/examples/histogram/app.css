@@ -1,0 +1,21 @@
+.resources-assigned .sch-gantt-label-right:before {
+    font-family  : FontAwesome;
+    content      : '\f007';
+    margin-right : 5px;
+}
+
+.sch-assignment-cell {
+    color : #666;
+}
+
+.gnt-resourcehistogram-bar {
+    background : #34d075;
+}
+
+.gnt-resourcehistogram-bar.gnt-resourcehistogram-bar-overwork {
+    background : #ff3333;
+}
+
+.x-splitter-horizontal {
+    background-color : #ececec;
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "Id": 2,
+        "StartDate": "2010-01-12",
+        "Duration": 3,
+        "children": [
+            {
+                "Id": 21,
+                "leaf": true,
+                "PercentDone": 50,
+                "StartDate": "2010-01-12",
+                "Duration": 1
+            },
+            {
+                "Id": 22,
+                "leaf": true,
+                "PercentDone": 50,
+                "StartDate": "2010-01-13",
+                "Duration": 2
+            }
+        ]
+    }
+]

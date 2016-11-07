@@ -1,0 +1,886 @@
+  [1m[36m (455.8ms)[0m  [1mCREATE DATABASE "extganttror" ENCODING = 'utf8'[0m
+  [1m[36m (10.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTasks (20160610095826)
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "tasks" ("id" serial primary key, "Name" character varying, "StartDate" timestamp, "Duration" integer, "DurationUnit" character varying, "ParentId" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160610095826"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDependencies (20160613110739)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "dependencies" ("id" serial primary key, "From" integer, "To" integer, "Type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160613110739"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'dependencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["Name", "Investigation"], ["StartDate", "2017-01-01 00:00:00.000000"], ["Duration", 8], ["DurationUnit", "d"], ["created_at", "2016-06-13 14:08:47.146244"], ["updated_at", "2016-06-13 14:08:47.146244"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["Name", "Meetings"], ["StartDate", "2017-01-01 00:00:00.000000"], ["Duration", 8], ["DurationUnit", "d"], ["ParentId", 1], ["created_at", "2016-06-13 14:08:47.153625"], ["updated_at", "2016-06-13 14:08:47.153625"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["Name", "Meeting 1"], ["StartDate", "2017-01-01 00:00:00.000000"], ["Duration", 2], ["DurationUnit", "d"], ["ParentId", 2], ["created_at", "2016-06-13 14:08:47.156064"], ["updated_at", "2016-06-13 14:08:47.156064"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["Name", "Meeting 2"], ["StartDate", "2017-01-04 00:00:00.000000"], ["Duration", 2], ["DurationUnit", "d"], ["ParentId", 2], ["created_at", "2016-06-13 14:08:47.158105"], ["updated_at", "2016-06-13 14:08:47.158105"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["Name", "Specs"], ["StartDate", "2017-01-06 00:00:00.000000"], ["Duration", 4], ["DurationUnit", "d"], ["ParentId", 1], ["created_at", "2016-06-13 14:08:47.159886"], ["updated_at", "2016-06-13 14:08:47.159886"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["Name", "Implementation"], ["StartDate", "2017-01-12 00:00:00.000000"], ["Duration", 10], ["DurationUnit", "d"], ["created_at", "2016-06-13 14:08:47.161675"], ["updated_at", "2016-06-13 14:08:47.161675"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["Name", "Database"], ["StartDate", "2017-01-12 00:00:00.000000"], ["Duration", 3], ["DurationUnit", "d"], ["ParentId", 6], ["created_at", "2016-06-13 14:08:47.163473"], ["updated_at", "2016-06-13 14:08:47.163473"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["Name", "Code"], ["StartDate", "2017-01-17 00:00:00.000000"], ["Duration", 6], ["DurationUnit", "d"], ["ParentId", 6], ["created_at", "2016-06-13 14:08:47.165259"], ["updated_at", "2016-06-13 14:08:47.165259"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("Name", "StartDate", "Duration", "DurationUnit", "ParentId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["Name", "Docs"], ["StartDate", "2017-01-25 00:00:00.000000"], ["Duration", 1], ["DurationUnit", "d"], ["ParentId", 6], ["created_at", "2016-06-13 14:08:47.167054"], ["updated_at", "2016-06-13 14:08:47.167054"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "dependencies" ("From", "To", "Type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["From", 3], ["To", 4], ["Type", 2], ["created_at", "2016-06-13 14:08:47.177090"], ["updated_at", "2016-06-13 14:08:47.177090"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dependencies" ("From", "To", "Type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["From", 4], ["To", 5], ["Type", 2], ["created_at", "2016-06-13 14:08:47.179918"], ["updated_at", "2016-06-13 14:08:47.179918"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dependencies" ("From", "To", "Type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["From", 7], ["To", 8], ["Type", 2], ["created_at", "2016-06-13 14:08:47.181747"], ["updated_at", "2016-06-13 14:08:47.181747"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dependencies" ("From", "To", "Type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["From", 8], ["To", 9], ["Type", 2], ["created_at", "2016-06-13 14:08:47.183487"], ["updated_at", "2016-06-13 14:08:47.183487"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-13 16:09:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (1295.9ms)
+Completed 200 OK in 1323ms (Views: 1304.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/sch-gantt-triton-all.self-cf651a221b32b548a3324ecb0598705895ee34dab41661c8a7b9c4b432067a01.css?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-13 16:09:25 +0200
+
+
+Started GET "/tasks/root?_dc=1465826966382" for 127.0.0.1 at 2016-06-13 16:09:26 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465826966382", "id"=>"root"}
+  [1m[35mTask Load (1.5ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (ParentId IS NULL)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.5ms)
+
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "parentid" does not exist
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE (ParentId IS NULL)
+                                             ^
+HINT:  Perhaps you meant to reference the column "tasks.ParentId".
+: SELECT "tasks".* FROM "tasks" WHERE (ParentId IS NULL)):
+  app/models/task.rb:22:in `json_tree'
+  app/models/task.rb:16:in `json'
+  app/models/task.rb:8:in `get_root_tree'
+  app/controllers/tasks_controller.rb:4:in `index'
+  app/controllers/tasks_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (30.2ms)
+
+
+Started GET "/dependencies?_dc=1465826966973&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-13 16:09:26 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465826966973", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[36mDependency Load (0.8ms)[0m  [1mSELECT "dependencies".* FROM "dependencies"[0m
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-13 16:14:15 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (16.9ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/sch-gantt-triton-all.self-cf651a221b32b548a3324ecb0598705895ee34dab41661c8a7b9c4b432067a01.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:16 +0200
+
+
+Started GET "/tasks/root?_dc=1465827257395" for 127.0.0.1 at 2016-06-13 16:14:17 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465827257395", "id"=>"root"}
+  [1m[35mTask Load (0.7ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("Tasks"."ParentId" IS NULL)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "Tasks"
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE ("Tasks"."ParentId" IS N...
+                                             ^
+: SELECT "tasks".* FROM "tasks" WHERE ("Tasks"."ParentId" IS NULL)):
+  app/models/task.rb:22:in `json_tree'
+  app/models/task.rb:16:in `json'
+  app/models/task.rb:8:in `get_root_tree'
+  app/controllers/tasks_controller.rb:4:in `index'
+  app/controllers/tasks_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (24.7ms)
+
+
+Started GET "/dependencies?_dc=1465827257850&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-13 16:14:17 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465827257850", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[36mDependency Load (0.5ms)[0m  [1mSELECT "dependencies".* FROM "dependencies"[0m
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (16.2ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/sch-gantt-triton-all.self-cf651a221b32b548a3324ecb0598705895ee34dab41661c8a7b9c4b432067a01.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-13 16:14:38 +0200
+
+
+Started GET "/tasks/root?_dc=1465827279518" for 127.0.0.1 at 2016-06-13 16:14:39 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465827279518", "id"=>"root"}
+  [1m[35mTask Load (0.8ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+Completed 200 OK in 55ms (Views: 1.0ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/dependencies?_dc=1465827280052&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-13 16:14:40 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465827280052", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[35mDependency Load (0.5ms)[0m  SELECT "dependencies".* FROM "dependencies"
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (23.4ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/sch-gantt-triton-all.self-cf651a221b32b548a3324ecb0598705895ee34dab41661c8a7b9c4b432067a01.css?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-13 16:15:22 +0200
+
+
+Started GET "/tasks/root?_dc=1465827324095" for 127.0.0.1 at 2016-06-13 16:15:24 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465827324095", "id"=>"root"}
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+Completed 200 OK in 23ms (Views: 0.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/dependencies?_dc=1465827324554&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-13 16:15:24 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465827324554", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[36mDependency Load (0.3ms)[0m  [1mSELECT "dependencies".* FROM "dependencies"[0m
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-13 19:32:24 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (19.1ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/root?_dc=1465839145899" for 127.0.0.1 at 2016-06-13 19:32:25 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465839145899", "id"=>"root"}
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mTask Load (0.6ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/dependencies?_dc=1465839146517&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-13 19:32:26 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465839146517", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[35mDependency Load (0.4ms)[0m  SELECT "dependencies".* FROM "dependencies"
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:21:12 +0200
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.6) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.6) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.6) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.6) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (50.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:21:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (2436.2ms)
+Completed 200 OK in 2461ms (Views: 2440.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-14 07:21:28 +0200
+
+
+Started GET "/tasks/root?_dc=1465881689714" for 127.0.0.1 at 2016-06-14 07:21:29 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465881689714", "id"=>"root"}
+  [1m[35mTask Load (1.6ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+Completed 200 OK in 114ms (Views: 1.2ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/dependencies?_dc=1465881690199&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-14 07:21:30 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465881690199", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[35mDependency Load (1.5ms)[0m  SELECT "dependencies".* FROM "dependencies"
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:22:47 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (701.6ms)
+Completed 200 OK in 705ms (Views: 703.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-14 07:22:48 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-14 07:22:48 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:48 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:48 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:48 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-14 07:22:49 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:49 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:49 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:49 +0200
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-14 07:22:49 +0200
+
+
+Started GET "/tasks/root?_dc=1465881770630" for 127.0.0.1 at 2016-06-14 07:22:50 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465881770630", "id"=>"root"}
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mTask Load (0.7ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/dependencies?_dc=1465881771447&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-14 07:22:51 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465881771447", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[36mDependency Load (0.3ms)[0m  [1mSELECT "dependencies".* FROM "dependencies"[0m
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (59.2ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sch-gantt-triton-all.self-cf651a221b32b548a3324ecb0598705895ee34dab41661c8a7b9c4b432067a01.css?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/gnt-all-debug.self-6857653f0319bbbc6ee126f3531e1f81ee48b182604b171285310537ce993ac1.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-14 07:23:25 +0200
+
+
+Started GET "/tasks/root?_dc=1465881807214" for 127.0.0.1 at 2016-06-14 07:23:27 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465881807214", "id"=>"root"}
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+Completed 200 OK in 21ms (Views: 0.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/dependencies?_dc=1465881808069&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-14 07:23:28 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465881808069", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[35mDependency Load (1.2ms)[0m  SELECT "dependencies".* FROM "dependencies"
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:59:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (321.4ms)
+Completed 500 Internal Server Error in 352ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (couldn't find file 'sch-gantt-triton-all.css' with type 'text/css'):
+    15: 
+    16:   <script src="http://www.bryntum.com/examples/gantt-latest/gnt-all-debug.js?ver=4.2.1" type="text/javascript"></script>
+    17: 
+    18:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    19:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    20:   <%= csrf_meta_tags %>
+    21: 
+  app/assets/stylesheets/application.css:13
+  app/views/application/index.html.erb:18:in `_app_views_application_index_html_erb__4230257344873491176_70268046269660'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (76.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (99.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (246.0ms)
+Completed 200 OK in 248ms (Views: 247.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for 127.0.0.1 at 2016-06-14 07:59:45 +0200
+
+
+Started GET "/tasks/root?_dc=1465883988044" for 127.0.0.1 at 2016-06-14 07:59:48 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465883988044", "id"=>"root"}
+  [1m[35mTask Load (0.7ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mTask Load (0.5ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+Completed 200 OK in 115ms (Views: 1.2ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/dependencies?_dc=1465883988923&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-14 07:59:48 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465883988923", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[35mDependency Load (1.4ms)[0m  SELECT "dependencies".* FROM "dependencies"
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-14 08:01:17 +0200
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb (716.1ms)
+Completed 200 OK in 719ms (Views: 718.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/prism.self-7e4ee42a6129196718c062e00589f628e27e309285058dccdcce66651ca001ad.css?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/dependencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/ror.self-716aa64f9a9f08cf61a606127b6cfaf68c62c279958a145a36f84b139ad7882c.css?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/prism.self-08f36099a96e7fcd6acc0259d5e8f8cfcf01884d64017878237c1ca7974d325e.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/dependencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-14 08:01:18 +0200
+
+
+Started GET "/tasks/root?_dc=1465884080010" for 127.0.0.1 at 2016-06-14 08:01:20 +0200
+Processing by TasksController#show as */*
+  Parameters: {"_dc"=>"1465884080010", "id"=>"root"}
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."ParentId" IS NULL)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 1]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 6]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 6]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 7]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 8]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1[0m  [["ParentId", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."ParentId" = $1  [["ParentId", 9]]
+Completed 200 OK in 24ms (Views: 1.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/dependencies?_dc=1465884080584&page=1&start=0&limit=25" for 127.0.0.1 at 2016-06-14 08:01:20 +0200
+Processing by DependenciesController#index as */*
+  Parameters: {"_dc"=>"1465884080584", "page"=>"1", "start"=>"0", "limit"=>"25"}
+  [1m[36mDependency Load (0.4ms)[0m  [1mSELECT "dependencies".* FROM "dependencies"[0m
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)

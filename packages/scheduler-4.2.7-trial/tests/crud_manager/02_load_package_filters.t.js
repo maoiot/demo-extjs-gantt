@@ -1,0 +1,67 @@
+StartTest(function(t) {
+
+    // Here we test that remote filters are included into load package #2222
+
+    t.expectGlobal('TestCrudManager1');
+
+    Ext.define('TestCrudManager1', {
+        extend : 'Sch.crud.AbstractManager'
+    });
+
+
+    t.it('Generates load package correctly', function (t) {
+
+        var resourceStore = t.getResourceStore({
+            remoteFilter  : true
+        });
+
+        resourceStore.addFilter({ property : 'foo', value : 1 });
+
+        var eventStore    = t.getEventStore({
+            filterParam   : 'eventsFilter',
+            remoteFilter  : true
+        });
+
+        eventStore.addFilter({ property : 'bar', value : 2 });
+
+        var eventStore2   = t.getEventStore({
+            storeId       : 'events2'
+        });
+
+        var crud        = Ext.create('TestCrudManager1', {
+            stores      : [
+                { store : resourceStore, storeId : 'resources', filterParam : 'resourcesFilter' },
+                { store : eventStore, storeId : 'events' },
+                eventStore2
+            ]
+        });
+
+        var pack = crud.getLoadPackage();
+
+        t.is(pack.type, 'load', 'Correct package type');
+        t.ok(pack.requestId, 'Has some request Id');
+        t.is(pack.stores.length, 3, 'Correct size of stores list');
+
+        t.isDeeply(pack.stores[0], {
+            storeId         : 'resources',
+            page            : 1,
+            pageSize        : 25,
+            resourcesFilter : [{ property : 'foo', value : 1 }]
+        }, 'proper resourceStore relevant package part');
+
+        t.isDeeply(pack.stores[1], {
+            storeId      : 'events',
+            page         : 1,
+            pageSize     : 25,
+            eventsFilter : [{ property : 'bar', value : 2 }]
+        }, 'proper eventStore relevant package part');
+
+        t.isDeeply(pack.stores[2], {
+            storeId  : 'events2',
+            page     : 1,
+            pageSize : 25
+        }, 'proper eventStore2 relevant package part');
+
+    });
+
+});

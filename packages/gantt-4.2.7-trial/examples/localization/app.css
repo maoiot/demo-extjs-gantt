@@ -1,0 +1,15 @@
+.resources-assigned .sch-gantt-label-right:before {
+    font-family  : FontAwesome;
+    content      : '\f007';
+    margin-right : 5px;
+}
+
+.sch-assignment-cell {
+    color : #666;
+}
+
+.x-panel-header label {
+    color       : #ffffff;
+    font-weight : normal;
+}
+

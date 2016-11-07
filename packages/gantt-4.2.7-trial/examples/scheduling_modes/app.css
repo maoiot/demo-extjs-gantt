@@ -1,0 +1,15 @@
+.sch-ganttpanel .x-table-layout-cell
+{
+	text-align:left;
+}
+
+.LowPrio 
+{
+    border-color:#555;
+    background-color:#bbb;
+}
+
+.LowPrio .sch-gantt-progress-bar
+{
+    background-color:#ddd;
+}

@@ -1,0 +1,712 @@
+{
+    "success"      : true,
+
+    "resources" : {
+        "rows" : [
+            { "Id": 1, "Name": "Planning" },
+            { "Id": 11, "Name": "Investigate" },
+            { "Id": 12, "Name": "Assign resources" },
+            { "Id": 13, "Name": "Gather documents (not resizable)" },
+            { "Id": 17, "Name": "Report to management" },
+            { "Id": 4, "Name": "Implementation Phase 1" },
+            { "Id": 34, "Name": "Preparation work" },
+            { "Id": 14, "Name": "Evaluate chipsets" },
+            { "Id": 16, "Name": "Choose technology suite" },
+            { "Id": 15, "Name": "Build prototype" },
+            { "Id": 20, "Name": "Step 1" },
+            { "Id": 19, "Name": "Step 2" },
+            { "Id": 18, "Name": "Step 3" },
+            { "Id": 21, "Name": "Follow up with customer" },
+            { "Id": 5, "Name": "Customer approval" },
+            { "Id": 6, "Name": "Implementation Phase 2" },
+            { "Id": 25, "Name": "Task 1" },
+            { "Id": 26, "Name": "Task 2" },
+            { "Id": 27, "Name": "Task 3" },
+            { "Id": 10, "Name": "Customer approval 2 (not draggable)" },
+            { "Id": 8, "Name": "Production phase 1" },
+            { "Id": 22, "Name": "Assemble" },
+            { "Id": 23, "Name": "Load SW" },
+            { "Id": 24, "Name": "Basic testing (inc some test)" },
+            { "Id": 9, "Name": "Final testing" },
+            { "Id": 7, "Name": "Delivery" },
+            { "Id": 101, "Name": "Planning" },
+            { "Id": 1011, "Name": "Investigate" },
+            { "Id": 1012, "Name": "Assign resources" },
+            { "Id": 1013, "Name": "Gather documents (not resizable)" },
+            { "Id": 1017, "Name": "Report to management" },
+            { "Id": 104, "Name": "Implementation Phase 1" },
+            { "Id": 1034, "Name": "Preparation work" },
+            { "Id": 1014, "Name": "Evaluate chipsets" },
+            { "Id": 1016, "Name": "Choose technology suite" },
+            { "Id": 1015, "Name": "Build prototype" },
+            { "Id": 1020, "Name": "Step 1" },
+            { "Id": 1019, "Name": "Step 2" },
+            { "Id": 1018, "Name": "Step 3" },
+            { "Id": 1021, "Name": "Follow up with customer" },
+            { "Id": 105, "Name": "Customer approval" },
+            { "Id": 106, "Name": "Implementation Phase 2" },
+            { "Id": 1025, "Name": "Task 1" },
+            { "Id": 1026, "Name": "Task 2" },
+            { "Id": 1027, "Name": "Task 3" },
+            { "Id": 1010, "Name": "Customer approval 2 (not draggable)" },
+            { "Id": 108, "Name": "Production phase 1" },
+            { "Id": 1022, "Name": "Assemble" },
+            { "Id": 1023, "Name": "Load SW" },
+            { "Id": 1024, "Name": "Basic testing (inc some test)" },
+            { "Id": 109, "Name": "Final testing" },
+            { "Id": 107, "Name": "Delivery" },
+            { "Id": 201, "Name": "Planning" },
+            { "Id": 2011, "Name": "Investigate" },
+            { "Id": 2012, "Name": "Assign resources" },
+            { "Id": 2013, "Name": "Gather documents (not resizable)" },
+            { "Id": 2017, "Name": "Report to management" },
+            { "Id": 204, "Name": "Implementation Phase 1" },
+            { "Id": 2034, "Name": "Preparation work" },
+            { "Id": 2014, "Name": "Evaluate chipsets" },
+            { "Id": 2016, "Name": "Choose technology suite" },
+            { "Id": 2015, "Name": "Build prototype" },
+            { "Id": 2020, "Name": "Step 1" },
+            { "Id": 2019, "Name": "Step 2" },
+            { "Id": 2018, "Name": "Step 3" },
+            { "Id": 2021, "Name": "Follow up with customer" },
+            { "Id": 205, "Name": "Customer approval" },
+            { "Id": 206, "Name": "Implementation Phase 2" },
+            { "Id": 2025, "Name": "Task 1" },
+            { "Id": 2026, "Name": "Task 2" },
+            { "Id": 2027, "Name": "Task 3" },
+            { "Id": 2010, "Name": "Customer approval 2 (not draggable)" },
+            { "Id": 208, "Name": "Production phase 1" },
+            { "Id": 2022, "Name": "Assemble" },
+            { "Id": 2023, "Name": "Load SW" },
+            { "Id": 2024, "Name": "Basic testing (inc some test)" },
+            { "Id": 209, "Name": "Final testing" },
+            { "Id": 207, "Name": "Delivery" }
+        ]
+    },
+
+
+    "dependencies" : {
+        "rows" : [
+            {"Id" : 1, "From" : 11, "To" : 17 },
+            {"Id" : 2, "From" : 12, "To" : 17 },
+            {"Id" : 3, "From" : 13, "To" : 17 },
+            {"Id" : 4, "From" : 17, "To" : 34 },
+            {"Id" : 5, "From" : 10, "To" : 22 },
+            {"Id" : 6, "From" : 22, "To" : 23 },
+            {"Id" : 7, "From" : 23, "To" : 24 },
+            {"Id" : 8, "From" : 24, "To" : 9 },
+            {"Id" : 9, "From" : 9, "To" : 7 },
+            {"Id" : 10, "From" : 21, "To" : 5 },
+            {"Id" : 11, "From" : 17, "To" : 14 },
+            {"Id" : 12, "From" : 17, "To" : 16 },
+            {"Id" : 13, "From" : 16, "To" : 20 },
+            {"Id" : 14, "From" : 16, "To" : 19 },
+            {"Id" : 15, "From" : 16, "To" : 18 },
+            {"Id" : 16, "From" : 18, "To" : 21 },
+            {"Id" : 17, "From" : 5, "To" : 25 },
+            {"Id" : 18, "From" : 5, "To" : 26 },
+            {"Id" : 19, "From" : 5, "To" : 27 },
+            {"Id" : 20, "From" : 27, "To" : 10 },
+            {"Id" : 101, "From" : 1011, "To" : 1017 },
+            {"Id" : 102, "From" : 1012, "To" : 1017 },
+            {"Id" : 103, "From" : 1013, "To" : 1017 },
+            {"Id" : 104, "From" : 1017, "To" : 1034 },
+            {"Id" : 105, "From" : 1010, "To" : 1022 },
+            {"Id" : 106, "From" : 1022, "To" : 1023 },
+            {"Id" : 107, "From" : 1023, "To" : 1024 },
+            {"Id" : 108, "From" : 1024, "To" : 109 },
+            {"Id" : 109, "From" : 109, "To" : 107 },
+            {"Id" : 1010, "From" : 1021, "To" : 105 },
+            {"Id" : 1011, "From" : 1017, "To" : 1014 },
+            {"Id" : 1012, "From" : 1017, "To" : 1016 },
+            {"Id" : 1013, "From" : 1016, "To" : 1020 },
+            {"Id" : 1014, "From" : 1016, "To" : 1019 },
+            {"Id" : 1015, "From" : 1016, "To" : 1018 },
+            {"Id" : 1016, "From" : 1018, "To" : 1021 },
+            {"Id" : 1017, "From" : 105, "To" : 1025 },
+            {"Id" : 1018, "From" : 105, "To" : 1026 },
+            {"Id" : 1019, "From" : 105, "To" : 1027 },
+            {"Id" : 1020, "From" : 1027, "To" : 1010 },
+            {"Id" : 201, "From" : 2011, "To" : 2017 },
+            {"Id" : 202, "From" : 2012, "To" : 2017 },
+            {"Id" : 203, "From" : 2013, "To" : 2017 },
+            {"Id" : 204, "From" : 2017, "To" : 2034 },
+            {"Id" : 205, "From" : 2010, "To" : 2022 },
+            {"Id" : 206, "From" : 2022, "To" : 2023 },
+            {"Id" : 207, "From" : 2023, "To" : 2024 },
+            {"Id" : 208, "From" : 2024, "To" : 209 },
+            {"Id" : 209, "From" : 209, "To" : 207 },
+            {"Id" : 2010, "From" : 2021, "To" : 205 },
+            {"Id" : 2011, "From" : 2017, "To" : 2014 },
+            {"Id" : 2012, "From" : 2017, "To" : 2016 },
+            {"Id" : 2013, "From" : 2016, "To" : 2020 },
+            {"Id" : 2014, "From" : 2016, "To" : 2019 },
+            {"Id" : 2015, "From" : 2016, "To" : 2018 },
+            {"Id" : 2016, "From" : 2018, "To" : 2021 },
+            {"Id" : 2017, "From" : 205, "To" : 2025 },
+            {"Id" : 2018, "From" : 205, "To" : 2026 },
+            {"Id" : 2019, "From" : 205, "To" : 2027 },
+            {"Id" : 2020, "From" : 2027, "To" : 2010 }
+        ]
+    },
+
+    "events" : {
+        "rows" : [
+            {
+                "Id"                : 1,
+                "ResourceId" : 1,
+                "Name"              : "Planning",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 11,
+                "ResourceId" : 11,
+                "Name"              : "Investigate",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 12,
+                "ResourceId" : 12,
+                "Name"              : "Assign resources",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 13,
+                "ResourceId" : 13,
+                "Name"              : "Gather documents (not resizable)",
+                "Resizable"         : false,
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 17,
+                "ResourceId" : 17,
+                "Name"              : "Report to management",
+                "StartDate"         : "2010-01-30",
+                "EndDate"         : "2010-01-30"
+            },
+            {
+                "Id"                : 4,
+                "ResourceId" : 4,
+                "TaskType"          : "LowPrio",
+                "Name"              : "Implementation Phase 1",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-11"
+            },
+            {
+                "Id"                : 34,
+                "ResourceId" : 34,
+                "Name"              : "Preparation work",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 14,
+                "ResourceId" : 14,
+                "Name"              : "Evaluate chipsets",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 16,
+                "ResourceId" : 16,
+                "Name"              : "Choose technology suite",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 15,
+                "ResourceId" : 15,
+                "Name"              : "Build prototype",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 20,
+                "ResourceId" : 20,
+                "Name"              : "Step 1",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 19,
+                "ResourceId" : 19,
+                "Name"              : "Step 2",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 18,
+                "ResourceId" : 18,
+                "Name"              : "Step 3",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 21,
+                "ResourceId" : 21,
+                "Name"              : "Follow up with customer",
+                "StartDate"         : "2010-02-12",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 5,
+                "ResourceId" : 5,
+                "Name"              : "Customer approval",
+                "StartDate"         : "2010-02-13",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 6,
+                "ResourceId" : 6,
+                "Name"              : "Implementation Phase 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 25,
+                "ResourceId" : 25,
+                "Name"              : "Task 1",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 26,
+                "ResourceId" : 26,
+                "Name"              : "Task 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 27,
+                "ResourceId" : 27,
+                "Name"              : "Task 3",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 10,
+                "ResourceId" : 10,
+                "Name"              : "Customer approval 2 (not draggable)",
+                "Draggable"         : false,
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-02-25"
+            },
+            {
+                "Id"                : 8,
+                "ResourceId" : 8,
+                "Name"              : "Production phase 1",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-30"
+            },
+            {
+                "Id"                : 22,
+                "ResourceId" : 22,
+                "Name"              : "Assemble",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-07"
+            },
+            {
+                "Id"                : 23,
+                "ResourceId" : 23,
+                "Name"              : "Load SW",
+                "StartDate"         : "2010-03-15",
+                "EndDate"         : "2010-03-26"
+            },
+            {
+                "Id"                : 24,
+                "ResourceId" : 24,
+                "Name"              : "Basic testing (inc some test)",
+                "StartDate"         : "2010-03-30",
+                "EndDate"         : "2010-04-12"
+            },
+            {
+                "Id"                : 9,
+                "ResourceId" : 9,
+                "Name"              : "Final testing",
+                "StartDate"         : "2010-04-15",
+                "EndDate"         : "2010-04-21"
+            },
+            {
+                "Id"                : 7,
+                "ResourceId" : 7,
+                "Name"              : "Delivery",
+                "StartDate"         : "2010-04-23",
+                "EndDate"         : "2010-04-23"
+            },
+            {
+                "Id"                : 101,
+                "ResourceId" : 101,
+                "Name"              : "Planning",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 1011,
+                "ResourceId" : 1011,
+                "Name"              : "Investigate",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 1012,
+                "ResourceId" : 1012,
+                "Name"              : "Assign resources",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 1013,
+                "ResourceId" : 1013,
+                "Name"              : "Gather documents (not resizable)",
+                "Resizable"         : false,
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 1017,
+                "ResourceId" : 1017,
+                "Name"              : "Report to management",
+                "StartDate"         : "2010-01-30",
+                "EndDate"         : "2010-01-30"
+            },
+            {
+                "Id"                : 104,
+                "ResourceId" : 104,
+                "TaskType"          : "LowPrio",
+                "Name"              : "Implementation Phase 1",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-11"
+            },
+            {
+                "Id"                : 1034,
+                "ResourceId" : 1034,
+                "Name"              : "Preparation work",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 1014,
+                "ResourceId" : 1014,
+                "Name"              : "Evaluate chipsets",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 1016,
+                "ResourceId" : 1016,
+                "Name"              : "Choose technology suite",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 1015,
+                "ResourceId" : 1015,
+                "Name"              : "Build prototype",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 1020,
+                "ResourceId" : 1020,
+                "Name"              : "Step 1",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 1019,
+                "ResourceId" : 1019,
+                "Name"              : "Step 2",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 1018,
+                "ResourceId" : 1018,
+                "Name"              : "Step 3",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 1021,
+                "ResourceId" : 1021,
+                "Name"              : "Follow up with customer",
+                "StartDate"         : "2010-02-12",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 105,
+                "ResourceId" : 105,
+                "Name"              : "Customer approval",
+                "StartDate"         : "2010-02-13",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 106,
+                "ResourceId" : 106,
+                "Name"              : "Implementation Phase 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 1025,
+                "ResourceId" : 1025,
+                "Name"              : "Task 1",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 1026,
+                "ResourceId" : 1026,
+                "Name"              : "Task 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 1027,
+                "ResourceId" : 1027,
+                "Name"              : "Task 3",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 1010,
+                "ResourceId" : 1010,
+                "Name"              : "Customer approval 2 (not draggable)",
+                "Draggable"         : false,
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-02-25"
+            },
+            {
+                "Id"                : 108,
+                "ResourceId" : 108,
+                "Name"              : "Production phase 1",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-30"
+            },
+            {
+                "Id"                : 1022,
+                "ResourceId" : 1022,
+                "Name"              : "Assemble",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-07"
+            },
+            {
+                "Id"                : 1023,
+                "ResourceId" : 1023,
+                "Name"              : "Load SW",
+                "StartDate"         : "2010-03-15",
+                "EndDate"         : "2010-03-26"
+            },
+            {
+                "Id"                : 1024,
+                "ResourceId" : 1024,
+                "Name"              : "Basic testing (inc some test)",
+                "StartDate"         : "2010-03-30",
+                "EndDate"         : "2010-04-12"
+            },
+            {
+                "Id"                : 109,
+                "ResourceId" : 109,
+                "Name"              : "Final testing",
+                "StartDate"         : "2010-04-15",
+                "EndDate"         : "2010-04-21"
+            },
+            {
+                "Id"                : 107,
+                "ResourceId" : 107,
+                "Name"              : "Delivery",
+                "StartDate"         : "2010-04-23",
+                "EndDate"         : "2010-04-23"
+            },
+            {
+                "Id"                : 201,
+                "ResourceId" : 201,
+                "Name"              : "Planning",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 2011,
+                "ResourceId" : 2011,
+                "Name"              : "Investigate",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 2012,
+                "ResourceId" : 2012,
+                "Name"              : "Assign resources",
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 2013,
+                "ResourceId" : 2013,
+                "Name"              : "Gather documents (not resizable)",
+                "Resizable"         : false,
+                "StartDate"         : "2010-01-18",
+                "EndDate"         : "2010-01-28"
+            },
+            {
+                "Id"                : 2017,
+                "ResourceId" : 2017,
+                "Name"              : "Report to management",
+                "StartDate"         : "2010-01-30",
+                "EndDate"         : "2010-01-30"
+            },
+            {
+                "Id"                : 204,
+                "ResourceId" : 204,
+                "TaskType"          : "LowPrio",
+                "Name"              : "Implementation Phase 1",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-11"
+            },
+            {
+                "Id"                : 2034,
+                "ResourceId" : 2034,
+                "Name"              : "Preparation work",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 2014,
+                "ResourceId" : 2014,
+                "Name"              : "Evaluate chipsets",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 2016,
+                "ResourceId" : 2016,
+                "Name"              : "Choose technology suite",
+                "StartDate"         : "2010-02-01",
+                "EndDate"         : "2010-02-06"
+            },
+            {
+                "Id"                : 2015,
+                "ResourceId" : 2015,
+                "Name"              : "Build prototype",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 2020,
+                "ResourceId" : 2020,
+                "Name"              : "Step 1",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 2019,
+                "ResourceId" : 2019,
+                "Name"              : "Step 2",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 2018,
+                "ResourceId" : 2018,
+                "Name"              : "Step 3",
+                "StartDate"         : "2010-02-08",
+                "EndDate"         : "2010-02-12"
+            },
+            {
+                "Id"                : 2021,
+                "ResourceId" : 2021,
+                "Name"              : "Follow up with customer",
+                "StartDate"         : "2010-02-12",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 205,
+                "ResourceId" : 205,
+                "Name"              : "Customer approval",
+                "StartDate"         : "2010-02-13",
+                "EndDate"         : "2010-02-13"
+            },
+            {
+                "Id"                : 206,
+                "ResourceId" : 206,
+                "Name"              : "Implementation Phase 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 2025,
+                "ResourceId" : 2025,
+                "Name"              : "Task 1",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 2026,
+                "ResourceId" : 2026,
+                "Name"              : "Task 2",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 2027,
+                "ResourceId" : 2027,
+                "Name"              : "Task 3",
+                "StartDate"         : "2010-02-15",
+                "EndDate"         : "2010-02-23"
+            },
+            {
+                "Id"                : 2010,
+                "ResourceId" : 2010,
+                "Name"              : "Customer approval 2 (not draggable)",
+                "Draggable"         : false,
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-02-25"
+            },
+            {
+                "Id"                : 208,
+                "ResourceId" : 208,
+                "Name"              : "Production phase 1",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-30"
+            },
+            {
+                "Id"                : 2022,
+                "ResourceId" : 2022,
+                "Name"              : "Assemble",
+                "StartDate"         : "2010-02-25",
+                "EndDate"         : "2010-03-07"
+            },
+            {
+                "Id"                : 2023,
+                "ResourceId" : 2023,
+                "Name"              : "Load SW",
+                "StartDate"         : "2010-03-15",
+                "EndDate"         : "2010-03-26"
+            },
+            {
+                "Id"                : 2024,
+                "ResourceId" : 2024,
+                "Name"              : "Basic testing (inc some test)",
+                "StartDate"         : "2010-03-30",
+                "EndDate"         : "2010-04-12"
+            },
+            {
+                "Id"                : 209,
+                "ResourceId" : 209,
+                "Name"              : "Final testing",
+                "StartDate"         : "2010-04-15",
+                "EndDate"         : "2010-04-21"
+            },
+            {
+                "Id"                : 207,
+                "ResourceId" : 207,
+                "Name"              : "Delivery",
+                "StartDate"         : "2010-04-23",
+                "EndDate"         : "2010-04-23"
+            }
+        ]
+    }
+}

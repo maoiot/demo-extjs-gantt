@@ -1,0 +1,14 @@
+.sch-event {
+    background-color : #fff;
+    color            : #777;
+    border-left      : 7px solid #fff;
+}
+
+.sch-event.sch-event-hover {
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+}
+
+.sch-event-inner {
+    padding   : 2px 4px;
+    font-size : 1.1em;
+}

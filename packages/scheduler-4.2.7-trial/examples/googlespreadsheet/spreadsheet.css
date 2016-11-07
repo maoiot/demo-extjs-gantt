@@ -1,0 +1,12 @@
+.sch-event {
+    color         : #1C3E7D;
+    cursor        : pointer;
+}
+
+.sch-event-inner {
+    padding: 5px;
+}
+
+iframe {
+    margin-top: 20px;
+}

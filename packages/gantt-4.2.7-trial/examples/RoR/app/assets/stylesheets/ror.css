@@ -1,0 +1,11 @@
+pre[class*="language-"] {
+    margin-top: 0;
+}
+
+pre[class*="language-"] {
+    background: #ffffff;
+}
+
+.sch-ganttpanel .x-grid-cell {
+    height : 35px;
+}

@@ -1,0 +1,64 @@
+.Sencha .sch-gantt-label-left
+{
+    background:url(images/sencha.png) no-repeat left center !important;
+    padding-left:20px;
+    font-weight:bold;
+    color:navy;
+}
+
+.Sencha .sch-gantt-parenttask-bar
+{
+    background:#eee;
+}
+
+.Sencha .sch-gantt-progress-bar
+{
+    background:red;
+}
+
+.Bryntum .sch-gantt-label-left
+{
+    background:url(images/bryntum.jpg) no-repeat left center !important;
+    padding-left:20px;
+    font-weight:bold;
+    color:navy;
+}
+
+.Bryntum .sch-gantt-progress-bar
+{
+    background:lightblue;
+}
+
+.Bryntum .sch-gantt-parenttask-bar
+{
+    background:#eee;
+}
+
+
+.x-tree-icon:before
+{
+    content: '';
+}
+
+.x-tree-icon
+{
+    background:url(images/arrow.png) no-repeat 2px 8px !important;
+}
+
+.Sencha .x-tree-icon
+{
+    background:url(images/sencha.png) no-repeat left center !important;
+    color:navy;
+}
+
+.ExtJS .x-tree-icon
+{
+    background:url(images/extjs.png) no-repeat left center !important;
+    color:navy;
+}
+
+.Bryntum .x-tree-icon
+{
+    background:url(images/bryntum.jpg) no-repeat left center !important;
+    color:navy;
+}

@@ -1,0 +1,25 @@
+/* Styling for TaskBoard, to achieve flatter look and smaller headers */
+
+.sch-taskcolumn .x-panel-header .x-panel-header-title-default {
+    font-size: 13px;
+}
+
+.sch-taskcolumn .x-panel-header-default-horizontal.x-header-noborder {
+    padding: 6px;
+}
+
+.sch-taskview {
+    background-color: #f0f0f0;
+}
+
+.sch-task {
+    box-shadow: none;
+}
+
+.sch-taskview div.sch-task-selected {
+    background-color: #87bceb;
+}
+
+.sch-task-selected div {
+    text-shadow: none;
+}

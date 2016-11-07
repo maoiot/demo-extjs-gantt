@@ -1,0 +1,9 @@
+.sch-resourcezone
+{
+    opacity: 0.3;
+    background: #eee url(../../resources/images/pattern.png) repeat;
+}
+
+.x-rtl.x-grid {
+    border-right-color: #d0d0d0;
+}

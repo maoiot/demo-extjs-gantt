@@ -1,0 +1,27 @@
+.sch-tool .sch-tool-details {
+    background-image:url('images/information.png');
+}
+.sch-tool .sch-tool-edit {
+    background-image:url('images/page_white_edit.png');
+}
+
+.sch-tool .sch-tool-split {
+    background-image:url('images/cut.png');
+}
+
+.sch-tool .sch-tool-delete {
+    background-image:url('images/cross.png');
+}
+
+.sch-tool .sch-tool-shiftforward {
+    background-image:url('images/arrow_right.png');
+}
+
+.sch-tool .sch-tool-shiftback {
+    background-image:url('images/arrow_left.png');
+}
+
+.sch-event-tools {
+    border: none;
+    border-radius: 0;
+}

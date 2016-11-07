@@ -1,0 +1,68 @@
+{
+    "success": true,
+    "resources": {
+        "rows": [
+            {
+                "Id": "MadMike",
+                "Name": "Mike"
+            },
+            {
+                "Id": "JakeTheSnake",
+                "Name": "Jake"
+            },
+            {
+                "Id": "KingFu",
+                "Name": "King"
+            },
+            {
+                "Id": "BeerBrian",
+                "Name": "Brian"
+            },
+            {
+                "Id": "LindaAnderson",
+                "Name": "Linda"
+            },
+            {
+                "Id": "DonJohnson",
+                "Name": "Don"
+            },
+            {
+                "Id": "KarenJohnson",
+                "Name": "Karen"
+            },
+            {
+                "Id": "DougHendricks",
+                "Name": "Doug"
+            },
+            {
+                "Id": "PeterPan",
+                "Name": "Peter"
+            }
+        ]
+    },
+    "events": {
+        "rows": [
+            {
+                "ResourceId": "MadMike",
+                "Type": "Call",
+                "Title": "Assignment 1",
+                "StartDate": "2011-12-09 10:00",
+                "EndDate": "2011-12-09 11:00"
+            },
+            {
+                "ResourceId": "KarenJohnson",
+                "Type": "Call",
+                "Title": "Customer call",
+                "StartDate": "2011-12-09 14:00",
+                "EndDate": "2011-12-09 16:00"
+            },
+            {
+                "ResourceId": "LindaAnderson",
+                "Type": "Meeting",
+                "Title": "Assignment 2",
+                "StartDate": "2011-12-09 10:00",
+                "EndDate": "2011-12-09 12:00"
+            }
+        ]
+    }
+}

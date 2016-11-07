@@ -1,0 +1,37 @@
+.gnt-resourcehistogram .x-grid-cell-inner {
+    height: 75px;
+}
+
+.gnt-resourcehistogram-bar {
+    background : #34d075;
+}
+
+.gnt-resourcehistogram-bar.gnt-resourcehistogram-bar-overwork {
+    background : #ff3333;
+}
+
+.gnt-resourcehistogram-limitline {
+    border-left  : none;
+    border-right : none;
+}
+
+.gnt-resourcehistogram-limitline.gnt-resourcehistogram-limitline-top {
+    border-top-style : dashed;
+}
+
+.histogram-icon {
+    font-size      : 24px !important;
+    vertical-align : middle;
+    text-align     : center;
+    position       : relative;
+}
+
+.histogram-icon:before {
+    position : absolute;
+    top      : 26px;
+    left     : 15px;
+}
+
+.histogram-name .x-grid-cell-inner {
+    padding-top: 28px;
+}

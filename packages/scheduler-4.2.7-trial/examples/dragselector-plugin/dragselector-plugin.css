@@ -1,0 +1,25 @@
+
+
+.sch-event-selected {
+    border-width : 2px;
+    font-weight  : bold;
+}
+
+.ev-withsubs .sch-event-inner {
+    margin : 0;
+}
+
+.sch-event {
+    background: #8dc0f5;
+    border: none;
+}
+
+.subevent {
+    color         : #ffffff;
+    background    : #00B233;
+    overflow      : hidden;
+    font-size     : 10px;
+    line-height   : 14px;
+    text-align    : center;
+    border-radius : 3px;
+}

@@ -1,0 +1,95 @@
+
+.sch-event {
+    border-color     : transparent;
+    background-color : #fff;
+    box-shadow       : 1px 1px 2px #aaa;
+    border-radius    : 0;
+}
+
+.sch-vertical .sch-event .sch-resizable-handle {
+    border-color : #d7d7d7;
+}
+
+.x-grid-inner-locked .x-grid-item {
+    border-width : 0;
+}
+
+.x-grid-inner-locked .x-grid-cell {
+    border-top-width : 1px;
+    border-color     : #ededed;
+}
+
+.x-grid-inner-locked .sch-spanned-row {
+    border-top-width : 0;
+}
+
+.sch-event-inner {
+    margin              : 0;
+    padding             : 2px 4px;
+    font-size           : 1.1em;
+    color               : #000;
+}
+
+.sch-event .time {
+    color : #666;
+}
+
+.sch-resourcecolumn-header .x-column-header-text:before {
+    font-family  : FontAwesome;
+    content      : '\f007';
+    margin-right : 5px;
+}
+
+.sch-resourcecolumn-header .x-column-header-inner {
+    padding     : 12px 4px;
+    line-height : 16px;
+}
+
+.Jake .sch-event-inner {
+    border-left : 7px solid gray;
+}
+
+.King .sch-event-inner {
+    border-left : 7px solid Aqua;
+}
+
+.Brian .sch-event-inner {
+    border-left : 7px solid BlanchedAlmond;
+}
+
+.Mike .sch-event-inner {
+    border-left : 7px solid red;
+}
+
+.Karen .sch-event-inner {
+    border-left : 7px solid BlanchedAlmond;
+}
+
+.Linda .sch-event-inner {
+    border-left : 7px solid green;
+}
+
+.Don .sch-event-inner {
+    border-left : 7px solid Khaki;
+}
+
+.Doug .sch-event-inner {
+    border-left : 7px solid Plum;
+}
+
+.Peter .sch-event-inner {
+    border-left : 7px solid Gold;
+}
+
+.lunch-style {
+    background     : #F5F5F5 url(../images/coffee.jpg) no-repeat center center;
+    z-index        : 1;
+    border         : 1px dashed #ddd;
+    pointer-events : none;
+    opacity        : 0.5;
+    filter         : alpha(opacity=50);
+}
+
+.x-column-header-text {
+    text-overflow : clip;
+}

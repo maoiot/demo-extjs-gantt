@@ -1,0 +1,31 @@
+{
+    "success": true,
+    "resources": {
+        "rows": [
+            {
+                "Id": "a",
+                "Name": "Rob"
+            },
+            {
+                "Id": "b",
+                "Name": "Mike"
+            }
+        ]
+    },
+    "events": {
+        "rows": [
+            {
+                "ResourceId": "a",
+                "Title": "Meeting #1",
+                "StartDate": "2010-01-01 11:00",
+                "EndDate": "2010-01-02 13:00"
+            },
+            {
+                "ResourceId": "b",
+                "Title": "Meeting #2",
+                "StartDate": "2010-01-02 13:00",
+                "EndDate": "2010-01-03 16:00"
+            }
+        ]
+    }
+}

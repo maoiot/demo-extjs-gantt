@@ -1,0 +1,15 @@
+.navigationbar {
+    background : #0072BB;
+}
+
+.navigationbar .x-btn {
+    background      : transparent !important;
+    border          : 0 none !important;
+}
+
+.navigationbar .x-title-text {
+    color        : #fff;
+    font-size    : 1.4em;
+    line-height  : 1.5;
+    padding-left : 5px;
+}

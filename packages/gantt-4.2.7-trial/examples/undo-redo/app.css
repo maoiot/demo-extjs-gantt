@@ -1,0 +1,12 @@
+.sch-ganttpanel .x-grid-inner-locked .x-grid-cell {
+    line-height : 32px;
+}
+
+.x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
+    margin-top : -1px;
+}
+
+.fieldnames {
+    font-style  : italic;
+    color       : #777;
+}

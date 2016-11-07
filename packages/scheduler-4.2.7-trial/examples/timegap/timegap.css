@@ -1,0 +1,28 @@
+
+.long-unallocated-slot {
+    background : url(images/texture.png) repeat !important;
+}
+
+.sch-event {
+    text-shadow   : rgba(0, 0, 0, .2) 0 -1px 0;
+}
+
+.sch-event-inner {
+    padding    : 8px;
+}
+
+.row-colorbox {
+    height        : 12px;
+    width         : 12px;
+    border-radius : 2px;
+    float         : left;
+    margin-right  : 7px;
+    position      : relative;
+    top           : 3px;
+}
+
+.check {
+    background      : url(images/check.png) no-repeat 5px center;
+    background-size : 20px;
+    padding-left    : 30px;
+}

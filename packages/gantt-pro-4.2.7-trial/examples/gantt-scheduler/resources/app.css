@@ -1,0 +1,9 @@
+@import 'css/gantt.css';
+@import 'css/scheduler.css';
+@import 'css/histogram.css';
+@import 'css/list.css';
+@import 'css/settings.css';
+
+.navigation {
+    border-right:1px solid #5fa2dd;
+}

@@ -1,0 +1,6 @@
+@import 'css/gantt.css';
+@import 'css/taskboard.css';
+
+.x-splitter {
+    background-color: #f3f3f3;
+}

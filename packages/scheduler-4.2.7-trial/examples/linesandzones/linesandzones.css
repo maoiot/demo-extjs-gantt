@@ -1,0 +1,64 @@
+.sch-event {
+    box-shadow : 1px 1px 1px rgba(150, 150, 150, 0.5);
+    opacity    : 0.9;
+    border     : 2px solid #fff;
+}
+
+.sch-timelineview .customZoneStyle {
+    background : url(images/graytexture.png) repeat !important;
+}
+
+.sch-timelineview .myZoneStyle {
+    background : whitesmoke url(images/pattern.png) repeat !important;
+}
+
+.sch-header-indicator.myZoneStyle {
+    border-color : rgb(103, 126, 255);
+}
+
+.sch-timelineview .important {
+    border-left : 2px dotted red;
+}
+
+.sch-header-indicator.important {
+    border-color : red;
+}
+
+.sch-schedulerpanel .x-grid-row .x-grid-cell,
+.sch-schedulerpanel .x-grid-row .x-grid-cell-inner {
+    border-top    : 0 none;
+    border-bottom : 0 none;
+}
+
+.sch-zone {
+    text-align : center;
+}
+
+.zone-type,
+.line-text {
+    background-color : rgb(103, 126, 255);
+    bottom           : 0;
+    color            : #FFEEEE;
+    display          : block;
+    position         : absolute;
+    width            : inherit;
+    padding          : 3px;
+}
+
+.sch-timeline {
+    overflow : visible;
+}
+
+.line-text {
+    bottom                     : 0px;
+    left                       : -2px;
+    box-shadow                 : 1px 1px 2px #ccc;
+    white-space                : nowrap;
+    width                      : auto;
+    padding-left               : 3px;
+    padding-right              : 3px;
+}
+
+.sch-zone {
+    z-index : 0; /* Make zones more visible and above the row lines */
+}

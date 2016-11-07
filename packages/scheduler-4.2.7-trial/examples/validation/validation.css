@@ -1,0 +1,34 @@
+.x-grid-cell.Machines .x-grid-cell-inner:before {
+    font-family  : FontAwesome;
+    content      : '\f013';
+    margin-right : 5px;
+}
+
+.x-grid-cell.Robots .x-grid-cell-inner:before {
+    font-family  : FontAwesome;
+    content      : '\f17b';
+    margin-right : 5px;
+}
+
+.evt-Machines {
+    background-color : #e44959;
+}
+
+.sch-event.sch-event-selected.evt-Machines,
+.sch-event.sch-event-hover.evt-Machines {
+    background-color : #B63E4C;
+}
+
+.x-grid-inner-locked .x-grid-body {
+    background : #eff;
+}
+
+.x-grid-inner-locked .x-grid-row .x-grid-cell {
+    background-color : transparent;
+}
+
+.unavailable .x-grid-cell {
+    color       : darkred;
+    font-weight : bold;
+    background  : url(images/graytexture.png) repeat-x left center !important;
+}

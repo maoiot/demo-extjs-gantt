@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RoR</title>
+
+  <!--Ext and ux styles -->
+  <link href="http://www.bryntum.com/examples/extjs-6.0.1/build/classic/theme-triton/resources/theme-triton-all.css" rel="stylesheet" type="text/css"/>
+
+  <!--Scheduler styles-->
+  <link href="http://www.bryntum.com/examples/gantt-latest/resources/css/sch-gantt-triton-all.css?ver=4.2.1" rel="stylesheet"/>
+
+  <!--Ext lib and UX components-->
+  <script src="http://www.bryntum.com/examples/extjs-6.0.1/build/ext-all.js" crossorigin="anonymous" type="text/javascript"></script>
+  <script src="http://www.bryntum.com/examples/extjs-6.0.1/build/classic/theme-triton/theme-triton.js" type="text/javascript"></script>
+
+  <script src="http://www.bryntum.com/examples/gantt-latest/gnt-all-debug.js?ver=4.2.1" type="text/javascript"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script src="ror.js" type="text/javascript"></script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

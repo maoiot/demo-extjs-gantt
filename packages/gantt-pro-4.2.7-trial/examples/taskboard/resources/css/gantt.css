@@ -1,0 +1,68 @@
+/* "Global" gantt styles */
+
+/* EOF "Global" gantt styles */
+
+/* Gantt task bar styles */
+.sch-gantt-task-bar {
+    background-color : #e0e0e0;
+    line-height      : 19px;
+}
+
+/* Animation percentage change */
+.sch-gantt-parenttask-bar .sch-gantt-progress-bar {
+    transition : width 0.5s;
+}
+
+/* Small progressbar to fit Kanban task miniatures */
+.sch-gantt-task-bar .sch-gantt-progress-bar {
+    height     : 4px;
+    transition : width 0.5s;
+    background : #1ec81e;
+}
+
+/* Styling of Kanban task miniatures */
+.sch-gantt-kanban-tasks {
+    overflow     : hidden;
+    padding-left : 3px;
+}
+
+.sch-gantt-kanban-task {
+    display     : inline-block;
+    width       : 8px;
+    height      : 8px;
+    cursor      : pointer;
+    margin-left : 3px;
+    transition  : background-color 0.25s;
+}
+
+/* Colors of kanban minitatures matched to TaskBoard colors */
+.sch-gantt-kanban-task.InProgress {
+    background-color : #e7a84b;
+}
+
+.sch-gantt-kanban-task.NotStarted {
+    background-color : brown;
+}
+
+.sch-gantt-kanban-task.FollowUp {
+    background-color : royalblue;
+}
+
+.sch-gantt-kanban-task.Done {
+    background-color : #1ec81e;
+}
+
+.sch-task-state-Done {
+    border-left-color : #1ec81e;
+}
+
+/* Highlight miniatures on hover & select */
+.sch-gantt-kanban-task:hover {
+    border : 1px solid white;
+}
+
+.sch-gantt-kanban-task-selected {
+    border : 1px solid white;
+}
+
+/* EOF Gantt task bar styles */

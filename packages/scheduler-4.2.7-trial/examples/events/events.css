@@ -1,0 +1,46 @@
+
+.sch-event-inner {
+    padding: 5px;
+}
+
+.sch-event-header {
+    font-weight : bold;
+    overflow    : hidden;
+    font-size   : 0.9em;
+}
+
+.sch-event-footer {
+    padding-left : 2px;
+}
+
+/*  -----------------------------------
+    Styling of log rows
+    ----------------------------------- */
+
+.evt-row {
+    padding : 9px 0;
+}
+
+.evt-row span {
+    margin-left : 5px;
+}
+
+.evt-row:nth-child(odd) {
+    background : whitesmoke;
+}
+
+.evt-time {
+    color        : Gray;
+}
+
+.evt-name {
+    font-weight : bold;
+}
+
+.evt-source {
+    text-decoration : underline;
+}
+
+.x-panel-body > span {
+    display : none !important;
+}

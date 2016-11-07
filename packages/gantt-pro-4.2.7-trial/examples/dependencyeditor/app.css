@@ -1,0 +1,12 @@
+/* Custom styling of Special dependencies, see data set for more details */
+.Special-line {
+    border-style : dashed;
+}
+
+.Special-line, .Special-arrow {
+    border-color : darkred;
+}
+
+.dependency-over, .dependency-over .sch-dependency-arrow {
+    border-color : #000;
+}

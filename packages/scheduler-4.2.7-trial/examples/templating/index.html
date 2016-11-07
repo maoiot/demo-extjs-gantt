@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+  <head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<!--Ext and ux styles -->
+    <link href="http://www.bryntum.com/examples/extjs-6.0.1/build/classic/theme-triton/resources/theme-triton-all.css" rel="stylesheet" type="text/css" />
+
+	<!--Scheduler styles-->
+    <link href="../../resources/css/sch-all-triton.css?ver=4.2.7" rel="stylesheet" type="text/css" />
+
+	<!--Implementation specific styles-->
+    <link href="../css/examples.css" rel="stylesheet" type="text/css" />
+    <link href="templating.css" rel="stylesheet" type="text/css" />
+
+    <!--Ext JS includes-->
+    <script src="http://www.bryntum.com/examples/extjs-6.0.1/build/ext-all.js" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="http://www.bryntum.com/examples/extjs-6.0.1/build/classic/theme-triton/theme-triton.js" crossorigin="anonymous" type="text/javascript"></script>
+
+    <!--Scheduler files-->
+    <script src="../../sch-all-debug.js?ver=4.2.7" type="text/javascript"></script>
+
+    <!--Application files-->
+    <script src="../examples-shared.js" type="text/javascript"></script>
+    <script src="templating.js" type="text/javascript"></script>
+    <title>Performance Data Visualization (templating)</title>
+  </head>
+  <body>
+    <div id="example-description">
+        <p>
+            This example visualizes <a href="https://en.wikipedia.org/wiki/.har">HAR</a> data output from Firebug (using the NetExport Firebug plugin).
+            The scheduler uses a custom event template which has different sections for blocking, waiting, receiving and connecting times.
+        </p>
+        <p>
+            Note that the js for the example code is not minified so it is readable. See <a href="templating.js">templating.js</a>.
+        </p>
+    </div>
+    <div id="example-container">
+    </div>
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-11046863-1");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+  </body>
+</html>

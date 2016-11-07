@@ -1,0 +1,128 @@
+<Tasks>
+    <Task>
+        <Id>1</Id>
+        <Name>Small hill</Name>
+        <State>Done</State>
+        <ResourceId>1</ResourceId>
+        <TaskId>3</TaskId>
+    </Task>
+    <Task>
+        <Id>2</Id>
+        <Name>Average hill</Name>
+        <State>Done</State>
+        <ResourceId>1</ResourceId>
+        <TaskId>3</TaskId>
+    </Task>
+    <Task>
+        <Id>3</Id>
+        <Name>Mountain</Name>
+        <State>InProgress</State>
+        <ResourceId>1</ResourceId>
+        <TaskId>3</TaskId>
+    </Task>
+    <Task>
+        <Id>4</Id>
+        <Name>Everest</Name>
+        <State>NotStarted</State>
+        <ResourceId>1</ResourceId>
+        <TaskId>3</TaskId>
+    </Task>
+    <Task>
+        <Id>5</Id>
+        <Name>Deking</Name>
+        <State>NotStarted</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>6</Id>
+        <Name>Hits</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>7</Id>
+        <Name>Shots</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>8</Id>
+        <Name>Hard hits</Name>
+        <State>InProgress</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>9</Id>
+        <Name>Rules</Name>
+        <State>FollowUp</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>10</Id>
+        <Name>Goal celebrations</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>4</TaskId>
+    </Task>
+    <Task>
+        <Id>11</Id>
+        <Name>Meet EnergyDrinkLtd</Name>
+        <State>NotStarted</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>7</TaskId>
+    </Task>
+    <Task>
+        <Id>12</Id>
+        <Name>Meet SportShoesInc</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>7</TaskId>
+    </Task>
+    <Task>
+        <Id>13</Id>
+        <Name>Teambuilding</Name>
+        <State>InProgress</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>8</TaskId>
+    </Task>
+    <Task>
+        <Id>14</Id>
+        <Name>Sponsor game</Name>
+        <State>NotStarted</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>8</TaskId>
+    </Task>
+    <Task>
+        <Id>15</Id>
+        <Name>Big city fundraiser</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>11</TaskId>
+    </Task>
+    <Task>
+        <Id>17</Id>
+        <Name>Very rich guys fundraiser</Name>
+        <State>NotStarted</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>11</TaskId>
+    </Task>
+    <Task>
+        <Id>18</Id>
+        <Name>Mama Marges orphanage</Name>
+        <State>FollowUp</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>12</TaskId>
+    </Task>
+    <Task>
+        <Id>19</Id>
+        <Name>Home for little kids</Name>
+        <State>Done</State>
+        <ResourceId>2</ResourceId>
+        <TaskId>12</TaskId>
+    </Task>
+</Tasks>

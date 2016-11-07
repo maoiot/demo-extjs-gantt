@@ -1,0 +1,21 @@
+.infopanel {
+    border-top : 1px solid #d0d0d0;,
+}
+
+.infopanel,
+.infopanel .x-panel-body,
+.infopanel .x-panel-header-default {
+    background : transparent;
+}
+
+.resourcefilter .x-panel-header-default {
+    padding-top    : 0;
+}
+
+.resourcefilter .x-form-cb-label {
+    cursor: pointer;
+}
+
+.infopanel .x-title-text {
+    color : #999;
+}

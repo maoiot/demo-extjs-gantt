@@ -1,0 +1,59 @@
+.carimg {
+    float      : left;
+    width      : 50%;
+    transition : opacity 0.5s;
+}
+
+.x-grid-cell-checkcolumn
+{
+    vertical-align: middle;
+}
+
+.x-grid-cell-inner-checkcolumn{
+    height: 100% !important;
+}
+
+dl.cardescr {
+    float : right;
+}
+
+.cardescr dt {
+    font-size   : 13px;
+    font-weight : bold;
+    color       : Navy;
+    text-align  : right;
+}
+
+.cardescr dd {
+    color : #999;
+}
+
+.x-splitter {
+    background : #d0d0d0;
+}
+
+.detailsform {
+    border-right : 1px solid #d0d0d0;
+}
+
+.functioning-false {
+    opacity : 0.3;
+}
+
+.chartbody {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+}
+
+.total {
+    display     : flex;
+    color       : #FF9463;
+    font-size   : 30px;
+    position    : relative;
+    font-weight : bold;
+    z-index     : 1000;
+    top         : 0;
+    left        : 0;
+    text-align  : center;
+}

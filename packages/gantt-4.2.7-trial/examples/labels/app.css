@@ -1,0 +1,13 @@
+.x-tree-node-text {
+    line-height: 56px;
+}
+
+.x-tree-icon:before {
+    position: relative;
+    top: 19px;
+}
+
+.x-tree-elbow-img {
+    position: relative;
+    top: 19px;
+}

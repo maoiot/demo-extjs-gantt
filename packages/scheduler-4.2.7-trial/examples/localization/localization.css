@@ -1,0 +1,67 @@
+.sch-event {
+    cursor : pointer;
+}
+
+.Important {
+    background-color : red;
+}
+
+.sch-event-inner {
+    padding: 4px;
+}
+
+.sch-event-selected.Important,
+.sch-event-hover.Important {
+    background-color : #c30000;
+}
+
+.Sales .x-grid-cell-inner:before,
+.Developer .x-grid-cell-inner:before,
+.Management .x-grid-cell-inner:before {
+    font-family : FontAwesome;
+    content     : '\f007';
+    margin-right: 5px;
+}
+
+.Sales .x-grid-cell-inner:before {
+    color: #167abc;
+}
+
+.Developer .x-grid-cell-inner:before {
+    color: #925e8b;
+}
+
+.Management .x-grid-cell-inner:before {
+    color: #16b603;
+}
+
+.Important .sch-event-inner:before {
+    font-family: FontAwesome;
+    content: '\f06a';
+    margin-right: 4px;
+}
+
+.Task .sch-event-inner:before {
+    font-family: FontAwesome;
+    content: '\f111';
+    margin-right: 4px;
+}
+
+@-webkit-keyframes glow {
+    0% {
+        box-shadow : 0 0 8px rgba(255, 0, 0, 1);
+    }
+    100% {
+        box-shadow : 0;
+        border-color       : darkred;
+    }
+}
+
+.Important {
+    -webkit-animation-name            : glow;
+    -webkit-animation-iteration-count : infinite;
+    -webkit-animation-duration        : 0.8s;
+    -webkit-animation-direction       : alternate;
+    -webkit-animation-timing-function : ease-in-out;
+    box-shadow                   : 0 0 4px rgba(255, 0, 0, 1);
+}

@@ -1,0 +1,48 @@
+div.sch-gantt-task-bar {
+    transition : background-color 0.5s ease;
+}
+
+div.sch-gantt-progress-bar {
+    transition : background-color 0.5s ease;
+}
+
+div.sch-dependency-line {
+    transition : background-color 0.5s ease;
+}
+
+.sch-dependency-arrow {
+    transition : background-color 0.5s ease;
+}
+
+.sch-ganttpanel .x-grid-inner-locked {
+    border-right : 2px solid #d0d0d0;
+}
+
+.gnt-chinese-holiday {
+    background : #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAK3990+wwjjgziqTqomYAEYB8RmROaABADv5Q9Fqp1NBAAAAABJRU5ErkJggg==) repeat;
+}
+
+.gnt-national-holiday {
+    background : #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAK3990+wwjjgziqTqomYAEYB8RmROaABADv5Q9Fqp1NBAAAAABJRU5ErkJggg==) repeat;
+}
+
+.project .x-grid-cell-inner {
+    color     : royalblue;
+    font-size : 1.1em;
+}
+
+.tasktip .caption, .bartip .caption {
+    text-align     : left;
+    font-weight    : bold;
+    white-space    : nowrap;
+    padding-bottom : 2px;
+    border-bottom  : 1px solid #8eaace;
+}
+
+.bartip .caption {
+    font-weight : normal;
+}
+
+.tasktip th, .bartip th {
+    text-align : left;
+}

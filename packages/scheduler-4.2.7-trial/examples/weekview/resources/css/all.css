@@ -1,0 +1,9 @@
+@import "view/Header.css";
+@import "view/InfoPanel.css";
+@import "view/NavigationBar.css";
+@import "view/ResourceFilter.css";
+@import "view/Scheduler.css";
+
+body.x-body {
+    background : #f5f5f5;
+}

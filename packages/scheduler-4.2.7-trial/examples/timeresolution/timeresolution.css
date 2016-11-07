@@ -1,0 +1,34 @@
+.sch-event {
+    background-color : #03b4d5;
+    cursor           : pointer;
+    text-align       : center;
+    line-height      : 30px;
+}
+
+.x-grid-inner-locked .x-grid-row .x-grid-cell-first {
+    background     : #efe;
+    vertical-align : middle;
+}
+
+.MadMike,
+.sch-event-hover.MadMike {
+    background-color : #9cc96b;
+}
+
+.LindaAnderson,
+.sch-event-selected.LindaAnderson,
+.sch-event-hover.LindaAnderson {
+    background-color : #ffc107;
+}
+
+.DonJohnson,
+.sch-event-selected.DonJohnson,
+.sch-event-hover.DonJohnson {
+    background-color : #925e8b;
+}
+
+.KarenJohnson,
+.sch-event-selected.KarenJohnson,
+.sch-event-hover.KarenJohnson {
+    background-color : #e44959;
+}

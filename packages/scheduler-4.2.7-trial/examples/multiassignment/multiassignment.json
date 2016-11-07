@@ -1,0 +1,110 @@
+{
+    "success"     : true,
+
+    "resources" : {
+        "rows" : [
+            {
+                "Id"   : "r1",
+                "Name" : "Mike"
+            },
+            {
+                "Id"   : "r2",
+                "Name" : "Linda"
+            },
+            {
+                "Id"   : "r3",
+                "Name" : "Don"
+            },
+            {
+                "Id"   : "r4",
+                "Name" : "Karen"
+            },
+            {
+                "Id"   : "r5",
+                "Name" : "Doug"
+            },
+            {
+                "Id"   : "r6",
+                "Name" : "Peter"
+            }
+        ]
+    },
+
+    "events" : {
+        "rows" : [
+            {
+                "Id"         : "e101",
+                "Name"       : "Event 1",
+                "StartDate"  : "2011-01-04",
+                "EndDate"    : "2011-01-06"
+            },
+            {
+                "Id"         : "e102",
+                "Name"       : "Event 2",
+                "StartDate"  : "2011-01-05",
+                "EndDate"    : "2011-01-08"
+            },
+            {
+                "Id"         : "e103",
+                "Name"       : "Event 3",
+                "StartDate"  : "2011-01-06",
+                "EndDate"    : "2011-01-08"
+            },
+            {
+                "Id"         : "e104",
+                "Name"       : "Event 4",
+                "StartDate"  : "2011-01-07",
+                "EndDate"    : "2011-01-09"
+            },
+            {
+                "Id"         : "e105",
+                "Name"       : "Event 5",
+                "StartDate"  : "2011-01-03",
+                "EndDate"    : "2011-01-05"
+            },
+            {
+                "Id"         : "e106",
+                "Name"       : "Event 6",
+                "StartDate"  : "2011-01-09",
+                "EndDate"    : "2011-01-11"
+            }
+        ]
+    },
+
+    "assignments" : {
+        "rows" : [
+            {
+                "EventId"    : "e101",
+                "ResourceId" : "r1"
+            },
+            {
+                "EventId"    : "e101",
+                "ResourceId" : "r2"
+            },
+            {
+                "EventId"    : "e102",
+                "ResourceId" : "r3"
+            },
+            {
+                "EventId"    : "e102",
+                "ResourceId" : "r4"
+            },
+            {
+                "EventId"    : "e102",
+                "ResourceId" : "r5"
+            },
+            {
+                "EventId"    : "e103",
+                "ResourceId" : "r6"
+            },
+            {
+                "EventId"    : "e105",
+                "ResourceId" : "r1"
+            },
+            {
+                "EventId"    : "e106",
+                "ResourceId" : "r4"
+            }
+        ]
+    }
+}

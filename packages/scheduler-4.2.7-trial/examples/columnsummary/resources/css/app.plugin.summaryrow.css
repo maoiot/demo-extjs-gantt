@@ -1,0 +1,26 @@
+.sch-plugin-summaryrow-locked,
+.sch-plugin-summaryrow-normal {
+    background  : #f5f5f5;
+    line-height : 30px;
+    text-align  : center;
+    height      : 35px;
+}
+
+.sch-plugin-summaryrow-locked {
+    text-align    : right;
+    padding-right : 10px;
+    font-weight   : bold;
+}
+
+.sch-plugin-summaryrow-locked table {
+    width        : 100% !important;
+    table-layout : fixed;
+}
+
+.sch-plugin-summaryrow-normal {
+    overflow : hidden;
+}
+
+.sch-plugin-summaryrow-normal td {
+    text-align : center;
+}

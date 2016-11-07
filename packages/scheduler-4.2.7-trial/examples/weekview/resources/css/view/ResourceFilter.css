@@ -1,0 +1,26 @@
+.resourcefilter .x-form-cb-label {
+    color       : #404040 !important;
+    line-height : 25px;
+}
+
+.resourcefilter .x-form-checkbox {
+    color       : inherit;
+    font-family : FontAwesome !important;
+    font-size   : 25px;
+    height      : 25px;
+    width       : 25px;
+    cursor      : pointer;
+}
+
+.resourcefilter .x-form-checkbox:before {
+    content : "\f096";
+}
+
+.resourcefilter .x-form-cb-checked .x-form-checkbox:before {
+    content : "\f0c8";
+}
+
+.resourcefilter .x-form-item-body-default.x-form-checkboxgroup-body {
+    padding-left  : 0;
+    padding-right : 0;
+}

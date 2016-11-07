@@ -1,0 +1,35 @@
+.dayShift div {
+    background: url(sun.png) no-repeat left center;
+}
+
+.nightShift div {
+    background: url(bluemoon.png) no-repeat left center;
+}
+
+.sch-event {
+    background-color: #DDDDDD;
+    border: none;
+    border-radius: 0.2em;
+    color: #333;
+    box-shadow: none;
+}
+
+.sch-event-inner {
+    padding: 0;
+}
+
+.value {
+    background: rgba(0, 0, 0, 0.1);
+    float: left;
+    font: bold 1.4em/27px Tahoma;
+    height: inherit;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    pointer-events: none;
+}
+
+div.sch-event-selected {
+    box-shadow: none;
+    background-color: #91b5e6;
+}

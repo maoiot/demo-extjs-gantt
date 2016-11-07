@@ -1,0 +1,27 @@
+.sch-event-inner {
+    padding : 8px;
+}
+
+.normalEvent {
+    top    : 5px;
+    height : 35px;
+}
+
+.milestone {
+    background  : none !important;
+    overflow    : visible !important;
+    bottom      : 0 !important;
+    height      : 29px;
+    padding-top : 2px;
+}
+
+.milestone .sch-event-inner {
+    overflow    : visible !important;
+    color       : #666;
+    padding-top : 10px;
+}
+
+.diamond {
+    background  : url(images/up.png) no-repeat left top;
+}
+
