@@ -1,6 +1,6 @@
 # Extjs Demo Application - Gantt chart
 
-Demo applicatiuon written on ExtJS. Digital representation of Gantt chart. [Demo](https://nixsolutions.github.io/demo-extjs-gantt/)
+Demo application written on ExtJS. Digital representation of Gantt chart. The main project objective is to extend the JS Gantt chart library. As the library was minified and obfuscated we weren't able to extend or modificate it directly. We extended and overridden library methods in order to add custom features.[Demo](https://nixsolutions.github.io/demo-extjs-gantt/)
 
 ## Features
 
